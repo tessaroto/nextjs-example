@@ -1,18 +1,20 @@
 import globalStyles from '../styles/global.js'
 import style from './styles.js'
 
-const Card = props => (
+import { numberFormat } from '../../lib/numberFormat';
+
+const Card = ({product}) => (
 	<div className="card">
 		<div className="product">
 			<div className="wrap">
 				<a href="/produto/refrigerante-coca-cola-pet-600-ml-pack-com-12-0-unidades-10478">
 					<div className="image">
-						<img alt="Refrigerante Coca Cola Pet 600 ml      Pack com 12.0 Unidades" title="Refrigerante Coca Cola Pet 600 ml      Pack com 12.0 Unidades" src="https://s3-sa-east-1.amazonaws.com/ifood-fotos/fotos/1523628359368_mini.jpg"/>
+						<img alt="Refrigerante Coca Cola Pet 600 ml      Pack com 12.0 Unidades" title="Refrigerante Coca Cola Pet 600 ml      Pack com 12.0 Unidades" src={product.imageId}/>
 					</div>
 					<div className="info">
 						<div className="description">
 							<p className="name">
-								{props.product} Refrigerante Coca Cola Pet 600 ml      Pack com 12.0 Unidades
+								{product.name}
 							</p>
 							<span className="quantity">
 								12
@@ -21,7 +23,8 @@ const Card = props => (
 						</div>
 						<div className="prices">
 							<strong className="price">
-								R$ 59,88
+								{numberFormat(product.offer.price)}
+
 							</strong>
 						
 							<span className="units">
@@ -43,8 +46,6 @@ const Card = props => (
 		<style jsx>
 			{style}
 		</style>
-
-
 	</div>
 );
 

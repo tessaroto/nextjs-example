@@ -2,15 +2,11 @@ import globalStyles from '../styles/global.js'
 import style from './styles.js'
 import Card from '../Card'
 
-const elements = ['1', '2', '3'];
 
-
-const CardList = () => (
-
-	
+const CardList = ({products}) => (
 	<div className="cards">
 		
-		{elements.map((item, index) => {
+		{products.map((item) => {
 	        return <Card product={item}/>
 	    })}
 		

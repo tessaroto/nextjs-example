@@ -8,7 +8,6 @@ export default css.global`
     float: left;
     text-align: center;
     margin-bottom: 32px;
-    width: 25%;
   }
 
   .product {

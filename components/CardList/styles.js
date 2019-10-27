@@ -7,7 +7,9 @@ export default css.global`
     flex-wrap: wrap;
     margin-left: 32px;
 
-    float: left;
-    width: 100%;
+    // float: left;
+    width: 84.0%;
+
   }
+
 `
