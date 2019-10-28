@@ -1,29 +1,43 @@
 import globalStyles from '../styles/global.js'
 import style from './styles.js'
 
-const SearchTerm = (props) => {
-    if (props.dym){
-        const linkDym = "/search?q=" + props.dym;
+
+class SearchTerm extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    handleDymClick(e) {
+        if (this.props.onDymClick)
+            this.props.onDymClick(this.props.dym);
+    }
+
+    renderDym() {
+        const linkDym = "/search?q=" + this.props.dym;
         return (
-            <div className="dym">
-                <h1 className="search-term">Você quis dizer: <a href={linkDym}>"{props.dym}"</a></h1>
+            <p className="dym">
+                Você quis dizer: <a onClick={this.handleDymClick.bind(this)}>{this.props.dym}</a>
+                <style jsx>
+                    {style}
+                </style>
+            </p>
+        );
+    }
+
+    render(){
+        return (
+            <div className="search-term">
+                <h1 className="search-term">
+                    Resultados para "{this.props.term}"
+                </h1>
+                {this.props.dym && this.renderDym()}
                 <style jsx>
                     {style}
                 </style>
             </div>
         );
     }
-    else{
-        return (
-            <div>
-                <h1 className="search-term">Resultados para "{props.term}"</h1>
-                <style jsx>
-                    {style}
-                </style>
-            </div>
-        );   
-    }
-};
+}
 
 export default SearchTerm;
 
